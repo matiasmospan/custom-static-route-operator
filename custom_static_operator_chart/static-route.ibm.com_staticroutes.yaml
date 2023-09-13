@@ -5,9 +5,9 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.9.2
   creationTimestamp: null
-  name: staticroutes.static-route.ibm.com
+  name: staticroutes.static-route.matiasmospan.com
 spec:
-  group: static-route.ibm.com
+  group: static-route.matiasmospan.com
   names:
     kind: StaticRoute
     listKind: StaticRouteList

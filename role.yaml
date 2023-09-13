@@ -29,7 +29,7 @@ rules:
   - create
   - get
 - apiGroups:
-  - static-route.ibm.com
+  - static-route.matiasmospan.com
   resources:
   - '*'
   verbs:
