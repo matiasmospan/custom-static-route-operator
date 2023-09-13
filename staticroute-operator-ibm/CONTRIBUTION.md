@@ -12,14 +12,14 @@ as well as the guidelines we follow for how our documents are formatted.
 
 To report an issue, or to suggest an idea for a change that you haven't
 had time to write-up yet, open an
-[issue](https://github.com/IBM/staticroute-operator/issues). It is best to check
-our existing [issues](https://github.com/IBM/staticroute-operator/issues) first
+[issue](https://github.com/matiasmospan/staticroute-operator/issues). It is best to check
+our existing [issues](https://github.com/matiasmospan/staticroute-operator/issues) first
 to see if a similar one has already been opened and discussed.
 
 ## Suggesting a Change
 
 To suggest a change to this repository, submit a [pull
-request](https://github.com/IBM/staticroute-operator/pulls)(PR) with the complete
+request](https://github.com/matiasmospan/staticroute-operator/pulls)(PR) with the complete
 set of changes you'd like to see. See the
 [Code Style](#code-style) section for
 the guidelines we follow for how documents are formatted.
@@ -115,4 +115,4 @@ See the [style doc](https://github.com/golang/go/wiki/CodeReviewComments) for de
 
 ## Code Of Conduct
 
-For more information please visit our official site of [Code Of Conduct](https://www.ibm.com/partnerworld/program/code-of-conduct)
+For more information please visit our official site of [Code Of Conduct](https://www.matiasmospan.com/partnerworld/program/code-of-conduct)

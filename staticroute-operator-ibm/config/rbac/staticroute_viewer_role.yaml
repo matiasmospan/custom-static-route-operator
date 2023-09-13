@@ -5,7 +5,7 @@ metadata:
   name: staticroute-viewer-role
 rules:
 - apiGroups:
-  - static-route.ibm.com
+  - static-route.matiasmospan.com
   resources:
   - staticroutes
   verbs:
@@ -13,7 +13,7 @@ rules:
   - list
   - watch
 - apiGroups:
-  - static-route.ibm.com
+  - static-route.matiasmospan.com
   resources:
   - staticroutes/status
   verbs:

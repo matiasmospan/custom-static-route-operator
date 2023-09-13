@@ -1,5 +1,5 @@
 //
-// Copyright 2021 IBM Corporation
+// Copyright 2021 matiasmospan Corporation
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 // Package v1 contains API Schema definitions for the static-route v1 API group
 // +kubebuilder:object:generate=true
-// +groupName=static-route.ibm.com
+// +groupName=static-route.matiasmospan.com
 package v1
 
 import (
@@ -26,7 +26,7 @@ import (
 
 var (
 	// GroupVersion is group version used to register these objects
-	GroupVersion = schema.GroupVersion{Group: "static-route.ibm.com", Version: "v1"}
+	GroupVersion = schema.GroupVersion{Group: "static-route.matiasmospan.com", Version: "v1"}
 
 	// SchemeBuilder is used to add go types to the GroupVersionKind scheme
 	SchemeBuilder = &scheme.Builder{GroupVersion: GroupVersion}

@@ -1,5 +1,5 @@
 //
-// Copyright 2021 IBM Corporation
+// Copyright 2021 matiasmospan Corporation
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ package node
 import (
 	"context"
 
-	staticroutev1 "github.com/IBM/staticroute-operator/api/v1"
+	staticroutev1 "github.com/matiasmospan/staticroute-operator/api/v1"
 	corev1 "k8s.io/api/core/v1"
 
 	"k8s.io/apimachinery/pkg/runtime"

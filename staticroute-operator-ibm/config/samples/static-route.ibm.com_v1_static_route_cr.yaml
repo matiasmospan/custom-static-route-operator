@@ -1,4 +1,4 @@
-apiVersion: static-route.ibm.com/v1
+apiVersion: static-route.matiasmospan.com/v1
 kind: StaticRoute
 metadata:
   name: example-static-route

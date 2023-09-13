@@ -1,5 +1,5 @@
 //
-// Copyright 2021 IBM Corporation
+// Copyright 2021 matiasmospan Corporation
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ import (
 	"net"
 	"testing"
 
-	staticroutev1 "github.com/IBM/staticroute-operator/api/v1"
+	staticroutev1 "github.com/matiasmospan/staticroute-operator/api/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -283,8 +283,8 @@ func TestRouteWrapperSetFinalizer(t *testing.T) {
 
 	if !done || len(route.GetFinalizers()) == 0 {
 		t.Error("Finalizer must be added")
-	} else if route.GetFinalizers()[0] != "finalizer.static-route.ibm.com" {
-		t.Errorf("`finalizer.static-route.ibm.com` not setted as finalizer: %v", route.GetFinalizers())
+	} else if route.GetFinalizers()[0] != "finalizer.static-route.matiasmospan.com" {
+		t.Errorf("`finalizer.static-route.matiasmospan.com` not setted as finalizer: %v", route.GetFinalizers())
 	}
 }
 

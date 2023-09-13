@@ -1,5 +1,5 @@
 //
-// Copyright 2021 IBM Corporation
+// Copyright 2021 matiasmospan Corporation
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,14 +35,14 @@ import (
 	_ "k8s.io/client-go/plugin/pkg/client/auth"
 	"k8s.io/client-go/rest"
 
-	"github.com/IBM/staticroute-operator/controllers/node"
-	"github.com/IBM/staticroute-operator/controllers/staticroute"
-	"github.com/IBM/staticroute-operator/pkg/routemanager"
-	"github.com/IBM/staticroute-operator/pkg/types"
-	"github.com/IBM/staticroute-operator/version"
+	"github.com/matiasmospan/staticroute-operator/controllers/node"
+	"github.com/matiasmospan/staticroute-operator/controllers/staticroute"
+	"github.com/matiasmospan/staticroute-operator/pkg/routemanager"
+	"github.com/matiasmospan/staticroute-operator/pkg/types"
+	"github.com/matiasmospan/staticroute-operator/version"
 	"github.com/vishvananda/netlink"
 
-	staticroutev1 "github.com/IBM/staticroute-operator/api/v1"
+	staticroutev1 "github.com/matiasmospan/staticroute-operator/api/v1"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client/apiutil"
 	"sigs.k8s.io/controller-runtime/pkg/client/config"
@@ -181,7 +181,7 @@ func mainImpl(params mainImplParams) {
 		panic(err)
 	}
 
-	resources, err := clientset.Discovery().ServerResourcesForGroupVersion("static-route.ibm.com/v1")
+	resources, err := clientset.Discovery().ServerResourcesForGroupVersion("static-route.matiasmospan.com/v1")
 	if err != nil {
 		panic(err)
 	}
@@ -233,7 +233,7 @@ func mainImpl(params mainImplParams) {
 		break
 	}
 	if !crdFound {
-		params.logger.Info("CRD not found: staticroutes.static-route.ibm.com")
+		params.logger.Info("CRD not found: staticroutes.static-route.matiasmospan.com")
 		panic(err)
 	}
 

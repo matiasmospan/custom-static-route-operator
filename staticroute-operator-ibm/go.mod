@@ -1,4 +1,4 @@
-module github.com/IBM/staticroute-operator
+module github.com/matiasmospan/staticroute-operator
 
 go 1.18
 

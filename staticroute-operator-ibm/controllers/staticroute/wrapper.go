@@ -1,5 +1,5 @@
 //
-// Copyright 2021 IBM Corporation
+// Copyright 2021 matiasmospan Corporation
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ import (
 	"net"
 	"reflect"
 
-	staticroutev1 "github.com/IBM/staticroute-operator/api/v1"
+	staticroutev1 "github.com/matiasmospan/staticroute-operator/api/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -33,7 +33,7 @@ func (rw *routeWrapper) setFinalizer() bool {
 	if len(rw.instance.GetFinalizers()) != 0 {
 		return false
 	}
-	rw.instance.SetFinalizers([]string{"finalizer.static-route.ibm.com"})
+	rw.instance.SetFinalizers([]string{"finalizer.static-route.matiasmospan.com"})
 	return true
 }
 

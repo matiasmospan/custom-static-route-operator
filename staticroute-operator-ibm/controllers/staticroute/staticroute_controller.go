@@ -1,5 +1,5 @@
 //
-// Copyright 2021 IBM Corporation
+// Copyright 2021 matiasmospan Corporation
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -22,9 +22,9 @@ import (
 	"fmt"
 	"net"
 
-	staticroutev1 "github.com/IBM/staticroute-operator/api/v1"
-	"github.com/IBM/staticroute-operator/pkg/routemanager"
-	"github.com/IBM/staticroute-operator/pkg/types"
+	staticroutev1 "github.com/matiasmospan/staticroute-operator/api/v1"
+	"github.com/matiasmospan/staticroute-operator/pkg/routemanager"
+	"github.com/matiasmospan/staticroute-operator/pkg/types"
 	corev1 "k8s.io/api/core/v1"
 	kerrors "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -87,7 +87,7 @@ var _ reconcile.Reconciler = &StaticRouteReconciler{}
 //+kubebuilder:rbac:groups="",resources=nodes,verbs=get;list;watch
 //+kubebuilder:rbac:groups=monitoring.coreos.com,resources=servicemonitors,verbs=get;create
 //+kubebuilder:rbac:groups=apps,resourceNames=static-route-operator,resources=deployments/finalizers,verbs=update
-//+kubebuilder:rbac:groups=static-route.ibm.com,resources=*,verbs=*
+//+kubebuilder:rbac:groups=static-route.matiasmospan.com,resources=*,verbs=*
 
 // Reconcile reads that state of the cluster for a StaticRoute object and makes changes based on the state read
 // and what is in the StaticRoute.Spec

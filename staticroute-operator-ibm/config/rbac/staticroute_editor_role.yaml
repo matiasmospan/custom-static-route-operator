@@ -5,7 +5,7 @@ metadata:
   name: staticroute-editor-role
 rules:
 - apiGroups:
-  - static-route.ibm.com
+  - static-route.matiasmospan.com
   resources:
   - staticroutes
   verbs:
@@ -17,7 +17,7 @@ rules:
   - update
   - watch
 - apiGroups:
-  - static-route.ibm.com
+  - static-route.matiasmospan.com
   resources:
   - staticroutes/status
   verbs:

@@ -9,7 +9,7 @@ Also, the solution is not intended to provide the basic cluster network setup (i
 ## Terms
 | Term | Explanation                |
 |------|----------------------------|
-| IKS  | IBM Kubernetes Service     |
+| IKS  | matiasmospan Kubernetes Service     |
 | CRD  | Custom Resource Definition |
 | CR   | Custom Resource (instance) |
 | DS   | DaemonSet                  |
@@ -26,7 +26,7 @@ In this case Reverse Path Filtering (uRPF) will drop the response on the worker 
 The solution is to allow customers to create custom static IP routes on all (or on selected) Kubernetes nodes. Taking the VPN example, such static routes would point to the VPN gateway as next hop if the destination IP range falls into one of the selected customer's on-prem datacenter's range.
 
 The current solution is based on other existing solutions.
-There are existing (customer specific) solutions for the same, created by IBM colleagues, like: https://github.com/jkwong888/k8s-add-static-routes and https://github.com/jkwong888/iks-overlay-ip-controller
+There are existing (customer specific) solutions for the same, created by matiasmospan colleagues, like: https://github.com/jkwong888/k8s-add-static-routes and https://github.com/jkwong888/iks-overlay-ip-controller
 
 The solution is deployed in a DaemonSet on the entire cluster. The deployed Pods will have a single controller loop to manage the IP routes locally on the Node, instructed by a Custom Resource, managed by the user. There is no central entity, who manages the DS Pods, they are all equal and independently watching the Custom Resource(s).
 
@@ -36,7 +36,7 @@ The solution is deployed in a DaemonSet on the entire cluster. The deployed Pods
 
 ## Configuration options
 ### Node selection
-If the user is willing to specify the static route only for a subset of Nodes, it is possible via arbitrary label selectors in the CR. Some examples assuming the cluster is IBM Cloud Kubernetes Service:
+If the user is willing to specify the static route only for a subset of Nodes, it is possible via arbitrary label selectors in the CR. Some examples assuming the cluster is matiasmospan Cloud Kubernetes Service:
 * Horizontal Node selection by specifying the worker-pool
 * Vertical Node selection by specifying the compute region
 

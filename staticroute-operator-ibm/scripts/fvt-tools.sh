@@ -14,7 +14,7 @@ update_node_list() {
 }
 
 pick_non_master_node() {
-  if [[ "${PROVIDER}" == "ibmcloud" ]]; then
+  if [[ "${PROVIDER}" == "matiasmospancloud" ]]; then
     echo -ne "${NODES[0]}"
   else
     for index in ${!NODES[*]}
@@ -83,7 +83,7 @@ exec_in_hostnet_of_node() {
 get_default_gw() {
   local nodename=${1}
   v="default"
-  if [[ "${PROVIDER}" == "ibmcloud" ]] && [[ "$(get_provider_type)" == "softlayer" ]]; then
+  if [[ "${PROVIDER}" == "matiasmospancloud" ]] && [[ "$(get_provider_type)" == "softlayer" ]]; then
     v="10.0.0.0/8"
   fi
   exec_in_hostnet_of_node "${nodename}" 'ip route' | grep "^${v}.*via.*dev" | tail -1 | awk '{print $3}'
@@ -91,17 +91,17 @@ get_default_gw() {
 
 get_provider_type() {
     local provider_type
-    provider_type=$(kubectl get nodes --no-headers --selector ibm-cloud.kubernetes.io/iaas-provider=softlayer | wc -l)
+    provider_type=$(kubectl get nodes --no-headers --selector matiasmospan-cloud.kubernetes.io/iaas-provider=softlayer | wc -l)
     if [[ ${provider_type} != "0" ]]; then
         echo "softlayer"
         return
     fi
-    provider_type=$(kubectl get nodes --no-headers --selector ibm-cloud.kubernetes.io/iaas-provider=gc | wc -l)
+    provider_type=$(kubectl get nodes --no-headers --selector matiasmospan-cloud.kubernetes.io/iaas-provider=gc | wc -l)
     if [[ ${provider_type} != "0" ]]; then
         echo "gen1"
         return
     fi
-    provider_type=$(kubectl get nodes --no-headers --selector ibm-cloud.kubernetes.io/iaas-provider=g2 | wc -l)
+    provider_type=$(kubectl get nodes --no-headers --selector matiasmospan-cloud.kubernetes.io/iaas-provider=g2 | wc -l)
     if [[ ${provider_type} != "0" ]]; then
         echo "gen2"
         return
@@ -268,7 +268,7 @@ EOF
 manage_common_operator_resources() {
   local action=$1
   fvtlog "${action^} common static-route-operator related resources..."
-  declare -a common_resources=('crd/bases/static-route.ibm.com_staticroutes.yaml' 'rbac/service_account.yaml' 'rbac/role.yaml' 'rbac/role_binding.yaml');
+  declare -a common_resources=('crd/bases/static-route.matiasmospan.com_staticroutes.yaml' 'rbac/service_account.yaml' 'rbac/role.yaml' 'rbac/role_binding.yaml');
   for resource in "${common_resources[@]}"; do
     kubectl "${action}" -f "${SCRIPT_PATH}"/../config/"${resource}"
   done

@@ -1,4 +1,4 @@
-[![Go Report Card](https://goreportcard.com/badge/github.com/IBM/staticroute-operator)](https://goreportcard.com/report/github.com/IBM/staticroute-operator) [![Active](http://img.shields.io/badge/Status-Active-green.svg)](https://github.com/IBM/staticroute-operator) [![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](https://github.com/IBM/staticroute-operator/pulls) [![Build Status](https://travis-ci.com/IBM/staticroute-operator.svg?branch=master)](https://travis-ci.com/IBM/staticroute-operator) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Code of Conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat)](https://www.ibm.com/partnerworld/program/code-of-conduct) 
+[![Go Report Card](https://goreportcard.com/badge/github.com/matiasmospan/staticroute-operator)](https://goreportcard.com/report/github.com/matiasmospan/staticroute-operator) [![Active](http://img.shields.io/badge/Status-Active-green.svg)](https://github.com/matiasmospan/staticroute-operator) [![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](https://github.com/matiasmospan/staticroute-operator/pulls) [![Build Status](https://travis-ci.com/matiasmospan/staticroute-operator.svg?branch=master)](https://travis-ci.com/matiasmospan/staticroute-operator) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Code of Conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat)](https://www.matiasmospan.com/partnerworld/program/code-of-conduct) 
 
 # static-route-operator
 Static IP route operator for Kubernetes clusters
@@ -8,14 +8,14 @@ This project is under development, use it on your own risk please.
 # Usage
 
 Public OCI images are not available yet. To give a try to the project you have to build your own image and store it in your image repository. Please follow some easy steps under `Development` section of the page.
-After build you have to apply some Kubernetes manifests: `config/crd/bases/static-route.ibm.com_staticroutes.yaml`, `config/rbac/service_account.yaml`, `config/rbac/role.yaml`, `config/rbac/role_binding.yaml` and `config/manager/manager.dev.yaml`.
+After build you have to apply some Kubernetes manifests: `config/crd/bases/static-route.matiasmospan.com_staticroutes.yaml`, `config/rbac/service_account.yaml`, `config/rbac/role.yaml`, `config/rbac/role_binding.yaml` and `config/manager/manager.dev.yaml`.
 Finaly you have to create `StaticRoute` custom resource on the cluster. The operator will pick it up and creates underlaying routing policies based on the given resource.
 
 ## Sample custom resources
 
 Route a subnet across the default gateway.
 ```
-apiVersion: static-route.ibm.com/v1
+apiVersion: static-route.matiasmospan.com/v1
 kind: StaticRoute
 metadata:
   name: example-static-route
@@ -25,7 +25,7 @@ spec:
 
 Route a subnet to the custom gateway.
 ```
-apiVersion: static-route.ibm.com/v1
+apiVersion: static-route.matiasmospan.com/v1
 kind: StaticRoute
 metadata:
   name: example-static-route
@@ -36,7 +36,7 @@ spec:
 
 Selecting target node(s) of the static route by label(s):
 ```
-apiVersion: static-route.ibm.com/v1
+apiVersion: static-route.matiasmospan.com/v1
 kind: StaticRoute
 metadata:
   name: example-static-route-with-selector
@@ -71,7 +71,7 @@ The following components are needed to be installed on your environment:
   * before you run any of the make target below, make sure the following are done:
     - export `REGISTRY_REPO` environment variable to your docker registry repo url (ie.: quay.io/example/static-route-operator:v0.0.1)
     - export `KUBECONFIG` environment variable to the path of kubeconfig file (if not set, default $$HOME/.kube/config will be used)
-    - login to your docker registry using your credentials (ie.: docker login... , ibmcloud cr login etc.)
+    - login to your docker registry using your credentials (ie.: docker login... , matiasmospancloud cr login etc.)
 
 ## Changing Go build version
 You can change the builder Go version for Static Route operator in `Makefile.env`. Please note, that since the docker build is done inside separately in a Go builder image (`GO_BUILDER_IMAGE`), you should also change Travis Go version in `.travis.yaml`, to make sure that the Go tests are running on the same Go version as the build.
@@ -102,7 +102,7 @@ Please note, the fvt test currently does not check network connectivity, it only
 Also there is an option to functionally test the operator on an existing cluster (in a cloud or in on-premise) by customizing test run with environment variables. The only prerequisite is that you shall access your cluster via `kubectl` commands before running the tests.
   - set the Prerequisites described above (repo name, kube config, docker login etc.)
   - export the following environment variables depending on your needs
-    - PROVIDER (can be `ibmcloud`, if not set then KinD will be used)
+    - PROVIDER (can be `matiasmospancloud`, if not set then KinD will be used)
     - SKIP_OPERATOR_INSTALL (if you already have an operator, set this to `true`. Default is `false`)
     - PROTECTED_SUBNET_TEST1
     - PROTECTED_SUBNET_TEST2 (list of protected subnets to test, if either of them are empty then no protected subnet test will run)
@@ -123,4 +123,4 @@ We appreciate your help!
 
 To contribute, please read our contribution guidelines: [CONTRIBUTION.md](CONTRIBUTION.md)
 
-Note that the Static Route Operator project uses the [issue tracker](https://github.com/IBM/staticroute-operator/issues) for bug reports and proposals only. If you have questions, engage our team via Slack by [registering here](https://cloud.ibm.com/kubernetes/slack) and join the discussion in the #general channel on our [public IBM Cloud Kubernetes Service Slack](https://ibm-cloud-success.slack.com/). 
+Note that the Static Route Operator project uses the [issue tracker](https://github.com/matiasmospan/staticroute-operator/issues) for bug reports and proposals only. If you have questions, engage our team via Slack by [registering here](https://cloud.matiasmospan.com/kubernetes/slack) and join the discussion in the #general channel on our [public matiasmospan Cloud Kubernetes Service Slack](https://matiasmospan-cloud-success.slack.com/). 

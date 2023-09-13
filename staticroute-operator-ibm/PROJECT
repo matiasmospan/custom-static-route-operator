@@ -1,19 +1,19 @@
-domain: ibm.com
+domain: matiasmospan.com
 layout:
 - go.kubebuilder.io/v3
 plugins:
   manifests.sdk.operatorframework.io/v2: {}
   scorecard.sdk.operatorframework.io/v2: {}
 projectName: staticroute-operator
-repo: github.com/IBM/staticroute-operator
+repo: github.com/matiasmospan/staticroute-operator
 resources:
 - api:
     crdVersion: v1
     namespaced: true
   controller: true
-  domain: ibm.com
+  domain: matiasmospan.com
   group: static-route
   kind: StaticRoute
-  path: github.com/IBM/staticroute-operator/api/v1
+  path: github.com/matiasmospan/staticroute-operator/api/v1
   version: v1
 version: "3"

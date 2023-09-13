@@ -82,14 +82,14 @@ fvtlog "Start applying static-route configurations"
 
 if [[ ${PROVIDER} == "kind" ]]; then
   cat <<EOF | kubectl apply -f -
-apiVersion: static-route.ibm.com/v1
+apiVersion: static-route.matiasmospan.com/v1
 kind: StaticRoute
 metadata:
   name: example-static-route-simple
 spec:
   subnet: "192.168.0.0/24"
 ---
-apiVersion: static-route.ibm.com/v1
+apiVersion: static-route.matiasmospan.com/v1
 kind: StaticRoute
 metadata:
   name: example-static-route-with-gateway
@@ -100,7 +100,7 @@ EOF
 fi
 
 cat <<EOF | kubectl apply -f -
-apiVersion: static-route.ibm.com/v1
+apiVersion: static-route.matiasmospan.com/v1
 kind: StaticRoute
 metadata:
   name: example-static-route-with-selector
@@ -191,7 +191,7 @@ check_route_on_nodes "192.168.2.0/24 via ${GW}" "all" "negative"
 
 fvtlog "Test wrong gateway configuration"
 cat <<EOF | kubectl apply -f -
-apiVersion: static-route.ibm.com/v1
+apiVersion: static-route.matiasmospan.com/v1
 kind: StaticRoute
 metadata:
   name: example-static-route-with-wrong-gateway
@@ -231,14 +231,14 @@ check_operator_is_running
 
 if [[ ! "${SKIP_PROTECTED_SUBNET_TESTS}" ]]; then
   cat <<EOF | kubectl apply -f -
-apiVersion: static-route.ibm.com/v1
+apiVersion: static-route.matiasmospan.com/v1
 kind: StaticRoute
 metadata:
   name: example-static-route-protected-subnet1
 spec:
   subnet: "${SUBNET1}"
 ---
-apiVersion: static-route.ibm.com/v1
+apiVersion: static-route.matiasmospan.com/v1
 kind: StaticRoute
 metadata:
   name: example-static-route-protected-subnet2
@@ -256,7 +256,7 @@ fi
 if [[ ${PROVIDER} == "kind" ]]; then
   fvtlog "Test static-route when selector does not apply - nodes do not have the label, status shall be empty"
   cat <<EOF | kubectl apply -f -
-apiVersion: static-route.ibm.com/v1
+apiVersion: static-route.matiasmospan.com/v1
 kind: StaticRoute
 metadata:
   name: example-static-route-no-match

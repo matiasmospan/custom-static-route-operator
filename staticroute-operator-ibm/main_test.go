@@ -1,5 +1,5 @@
 //
-// Copyright 2021 IBM Corporation
+// Copyright 2021 matiasmospan Corporation
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -24,8 +24,8 @@ import (
 	"runtime/debug"
 	"testing"
 
-	"github.com/IBM/staticroute-operator/controllers/staticroute"
-	"github.com/IBM/staticroute-operator/pkg/routemanager"
+	"github.com/matiasmospan/staticroute-operator/controllers/staticroute"
+	"github.com/matiasmospan/staticroute-operator/pkg/routemanager"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/client-go/rest"
